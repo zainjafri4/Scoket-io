@@ -13,9 +13,31 @@
     <p>Hello World</p>
     <script>
         let socket = io()
-        socket.on('firstMessage', (data)=>{
-            document.write(data.Message)
+
+        socket.on('connect_failed', ()=>{
+            Alert('Connection Failed')
         })
+
+        socket.on('reconnect', ()=>{
+            Alert('Reconnected')
+        })
+
+        socket.on('reconnect_failed', ()=>{
+            Alert('Reconnect Failed')
+        })
+
+
+        // socket.on('roomConnected', (data)=>{
+        //     document.body.innerHTML = '';
+        //     document.write(data)
+        // })
+
+        // socket.on('firstMessage', (data)=>{
+        //     document.write(data.Message)
+        // })
+
+        // socket.emit('clientSide', {Message : "Hi How may I help? (Client Side)"})
+
     </script>
 </body>
 </html>
